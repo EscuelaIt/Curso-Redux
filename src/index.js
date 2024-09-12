@@ -1,4 +1,5 @@
 import { increment, setMessage, decrement } from "./redux/app-slice";
+import { login, logout } from "./redux/user-slice";
 import { store } from "./redux/store";
 
 const state = store.getState();
@@ -22,9 +23,20 @@ document.getElementById('sayHello').addEventListener('click', function() {
   store.dispatch(setMessage("Hola Redux"));
 });
 
+document.getElementById('loggedcheck').addEventListener('click', function(e) {
+  if(e.target.checked) {
+    store.dispatch(setMessage('Login realizado'));
+    store.dispatch(login());
+  } else {
+    store.dispatch(setMessage('Has salido de tu cuenta'));
+    store.dispatch(logout());
+  }
+});
+
 function updateDom(state) {
-  setMsg(state.msg);
-  setCounter(state.counter);
+  setMsg(state.app.msg);
+  setCounter(state.app.counter);
+  setLoggedState(state.user.loggedIn);
 }
 
 function setMsg(msg) {
@@ -34,4 +46,13 @@ function setMsg(msg) {
 function setCounter(counter) {
   let counterElement = document.getElementById('counter');
   counterElement.innerText = counter;
+}
+
+function setLoggedState(loggedIn) {
+  const appElement = document.getElementById('app');
+  if(loggedIn) {
+    appElement.classList.remove('hidden');
+  } else {
+    appElement.classList.add('hidden');
+  }
 }

@@ -4,20 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ejemplos Redux</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <h1>Ejemplos Redux</h1>
 
   <div id="msg"></div>
-  <h2 id="counter"></h2>
-  <p>
-    <button id="increment">+1</button>
-    <button id="decrement">-1</button>
-    <button id="decrement10">-10</button>
+
+  <p></p>
+    <input type="checkbox" id="loggedcheck"> <label for="loggedcheck">Login / logout</label>
   </p>
-  <p>
-    <button id="sayHello">Decir Hola</button>
-  </p>
+
+  <div id="app">
+    <h2 id="counter"></h2>
+    <p>
+      <button id="increment">+1</button>
+      <button id="decrement">-1</button>
+      <button id="decrement10">-10</button>
+    </p>
+    <p>
+      <button id="sayHello">Decir Hola</button>
+    </p>
+  </div>
 
   <script src="/src/index.js" type="module"></script>
 </body>

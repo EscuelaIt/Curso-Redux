@@ -12,6 +12,7 @@ export const appSlice = createSlice({
     },
     decrement: (state, action) => {
       state.counter -= action.payload;
+      state.msg = `has decrementado en ${action.payload}`
     },
     setMessage: (state, action) => {
       console.log(action);
@@ -21,3 +22,10 @@ export const appSlice = createSlice({
 });
 
 export const { increment, decrement, setMessage } = appSlice.actions;
+
+// export const procesoComplejo = (data) => async dispatch => {
+//   //complejo
+//   await fetch();
+//   dispatch(increment());
+//   dispatch(setMessage('has hecho algo complejo'));
+// }
