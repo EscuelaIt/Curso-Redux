@@ -1,4 +1,4 @@
-import { increment } from "./redux/app-slice";
+import { increment, setMessage, decrement } from "./redux/app-slice";
 import { store } from "./redux/store";
 
 const state = store.getState();
@@ -11,6 +11,15 @@ store.subscribe(() => {
 
 document.getElementById('increment').addEventListener('click', function() {
   store.dispatch(increment())
+});
+document.getElementById('decrement').addEventListener('click', function() {
+  store.dispatch(decrement(1));
+});
+document.getElementById('decrement10').addEventListener('click', function() {
+  store.dispatch(decrement(10));
+});
+document.getElementById('sayHello').addEventListener('click', function() {
+  store.dispatch(setMessage("Hola Redux"));
 });
 
 function updateDom(state) {

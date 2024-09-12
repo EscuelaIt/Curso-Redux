@@ -10,10 +10,14 @@ export const appSlice = createSlice({
     increment: (state) => {
       state.counter++;
     },
-    decrement: (state) => {
-      state.counter--;
+    decrement: (state, action) => {
+      state.counter -= action.payload;
     },
+    setMessage: (state, action) => {
+      console.log(action);
+      state.msg = action.payload;
+    }
   },
 });
 
-export const { increment, decrement } = appSlice.actions;
+export const { increment, decrement, setMessage } = appSlice.actions;
