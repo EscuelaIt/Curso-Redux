@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redux "legacy"</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/todomvc.css">
+  </head>
+  
+  <body>
+    <section class="todoapp">
+      <header class="header">
+        <h1>todos</h1>
+        <form id="form">
+          <input id="new-todo" name="text" class="new-todo" placeholder="What needs to be done?" autofocus>
+        </form>
+      </header>
+      <button id="delete">delete</button>
+      <section class="main">
+        <input class="toggle-all" type="checkbox">
+        <label for="toggle-all">Mark all as complete</label>
+        <ul id="todo-list" class="todo-list"></ul>
+      </section>
+      <footer class="footer">
+        <span class="todo-count"></span>
+        <ul class="filters">
+          <li>
+            <a href="#/" class="selected">All</a>
+          </li>
+          <li>
+            <a href="#/active">Active</a>
+          </li>
+          <li>
+            <a href="#/completed">Completed</a>
+          </li>
+        </ul>
+        <button class="clear-completed">Clear completed</button>
+      </footer>
+    </section>
+    <script src="index.js" type="module"></script>
+  </body>
+  
+  </html>
