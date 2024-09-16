@@ -1,3 +1,4 @@
+import { getCountries } from "./redux/country-slice";
 import { increment, setMessage, decrement } from "./redux/app-slice";
 import { login, logout } from "./redux/user-slice";
 import { store } from "./redux/store";
@@ -22,6 +23,10 @@ document.getElementById('decrement10').addEventListener('click', function() {
 document.getElementById('sayHello').addEventListener('click', function() {
   store.dispatch(setMessage("Hola Redux"));
 });
+document.getElementById('getCountries').addEventListener('click', function() {
+  store.dispatch(getCountries('ar'));
+});
+
 
 document.getElementById('loggedcheck').addEventListener('click', function(e) {
   if(e.target.checked) {
