@@ -30,7 +30,7 @@ function createDeleteHandlers() {
     item.addEventListener('click', function () {
       console.log('click en el botón de borrar', item.dataset.id);
       store.dispatch(deleteTodo(item.dataset.id));
-      store.dispatch(sendFeedback('Se ha borrado la tarea'));
+      store.dispatch(sendFeedback('Se ha borrado la tarea', 'error'));
     });
   });
 }

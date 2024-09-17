@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.msg_error {
+  color: red;
+}
+
 .checkIcon {
   background-repeat: no-repeat;
   padding-left: 30px;

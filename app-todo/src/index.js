@@ -6,12 +6,18 @@ import './init';
 store.subscribe( () => {
   const state = store.getState();
   renderTodos(state);
-  setMessage(state.app.message);
+  setMessage(state.app.message, state.app.statusMessage);
   if(state.todo.todos.length == 0) {
     setMessage('No hay Todos!')
   }
 });
 
-function setMessage(msg) {
-  document.querySelector('footer').innerText = msg;
+function setMessage(msg, status) {
+  const messageElement = document.querySelector('footer');
+  messageElement.innerText = msg;
+  if(status == 'error') {
+    messageElement.classList.add('msg_error');
+  } else {
+    messageElement.classList.remove('msg_error');
+  }
 }
