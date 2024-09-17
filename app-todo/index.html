@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redux todo-list</title>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+  <div class="container mx-auto bg-white rounded-lg shadow-lg p-2">
+    <h1 class="text-3xl font-extrabold text-center p-4 mb-6 rounded-lg shadow-lg bg-gradient-to-r from-yellow-100 via-sky-50 to-lime-100 text-slate-800">
+      Todo List
+    </h1>
+  
+    <form class="flex mb-4" id="createForm">
+      <input type="text" placeholder="Añadir una tarea" id="todoName"
+        class="flex-grow p-2 rounded-l-lg border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" />
+      <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-r-lg">Añadir</button>
+    </form>
+  
+    <ul class="list-disc px-2">
+
+    </ul>
+
+    <footer class="mt-3 bg-slate-200 rounded-lg text-sm flex justify-center py-1 text-blue-500">&nbsp;</footer>
+  </div>
+
+  <script src="./src/index.js" type="module"></script>
+</body>
+</html>
