@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.checkIcon {
+  background-repeat: no-repeat;
+  padding-left: 30px;
+}
+
+.checked {
+  background-image: url(/checked.svg);
+  text-decoration: line-through;
+}
+
+.unchecked {
+  background-image: url(/circle.svg);
+}
+
+.filters a {
+  @apply block uppercase border border-gray-200 py-1 px-2 whitespace-nowrap text-sm bg-white rounded-sm;
+}
+
+a.filterSelected {
+  @apply bg-sky-100 border-slate-400;
+}
