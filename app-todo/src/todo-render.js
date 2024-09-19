@@ -13,7 +13,19 @@ function todoTemplate(todo) {
 
 export function renderTodos(state) {
   const todoListElement = document.querySelector('.todolist');
-  const todos = state.todo.todos;
+  let todos = state.todo.todos;
+  const filter = state.todo.filter;
+  todos = todos.filter(todo => {
+    if(filter == 'ALL') {
+      return true;
+    }
+    if(filter == 'PENDING') {
+      return ! todo.completed;
+    }
+    if(filter == 'COMPLETED') {
+      return todo.completed;
+    }
+  });
   if (todos.length > 0) {
     const arrayTemplates = todos.map(todo => todoTemplate(todo));
     todoListElement.innerHTML = arrayTemplates.join('');

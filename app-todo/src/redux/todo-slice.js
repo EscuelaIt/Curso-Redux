@@ -15,6 +15,21 @@ export const todoSlice = createSlice({
         completed: false
       }
     ],
+    filter: 'ALL',
+    availableFilters: [
+      {
+        name: 'ALL',
+        label: 'Todas'
+      },
+      {
+        name: 'PENDING',
+        label: 'Pendientes'
+      },
+      {
+        name: 'COMPLETED',
+        label: 'Completadas'
+      },
+    ],
   },
   reducers: {
     addTodo: (state, action) => {
@@ -33,11 +48,14 @@ export const todoSlice = createSlice({
       if(todo) {
         todo.completed = !todo.completed;
       }
+    },
+    setFilter: (state, action) => {
+      state.filter = action.payload
     }
   }
 });
 
-export const { addTodo, deleteTodo, toggleCompleteTodo } = todoSlice.actions;
+export const { addTodo, deleteTodo, toggleCompleteTodo, setFilter } = todoSlice.actions;
 
 function getNextId(todos) {
   const maxId = todos.reduce((max, todo) => (todo.id > max ? todo.id : max), 0);

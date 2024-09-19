@@ -1,11 +1,13 @@
 import './css/style.css';
 import { store } from './redux/store';
 import { renderTodos } from './todo-render';
+import { renderFilters } from './filter-render';
 import './init';
 
 store.subscribe( () => {
   const state = store.getState();
   renderTodos(state);
+  renderFilters(state);
   setMessage(state.app.message, state.app.statusMessage);
   if(state.todo.todos.length == 0) {
     setMessage('No hay Todos!')

@@ -1,3 +1,4 @@
+import { renderFilters } from './filter-render';
 import { sendFeedback } from './redux/app-slice';
 import { store } from './redux/store';
 import { addTodo } from './redux/todo-slice';
@@ -7,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const state = store.getState();
   console.log(state);
   renderTodos(state);
+  renderFilters(state);
 
   document.getElementById('createForm').addEventListener('submit', function(e) {
     e.preventDefault();
