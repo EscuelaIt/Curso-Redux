@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.msg_error {
+  color: red;
+}
+
+.checkIcon {
+  background-repeat: no-repeat;
+  padding-left: 30px;
+}
+
+.checked {
+  background-image: url(/checked.svg);
+  text-decoration: line-through;
+}
+
+.unchecked {
+  background-image: url(/circle.svg);
+}
+
+.filters a {
+  @apply block uppercase border border-gray-200 py-1 px-2 whitespace-nowrap text-sm bg-white rounded-sm;
+}
+
+a.filterSelected {
+  @apply bg-sky-100 border-slate-400;
+}
+
+#loader {
+  display: none; /* Ocultamos el loader por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Capa semitransparente */
+  z-index: 9999; /* Para que esté por encima de otros elementos */
+}
+
+#loader.active {
+  display: flex; /* Mostramos el loader y centramos el contenido */
+  align-items: center;
+  justify-content: center;
+}
+
+#loader::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 5px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
