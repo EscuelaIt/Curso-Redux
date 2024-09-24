@@ -62,16 +62,19 @@ function createFetchConfig(method, body) {
 
 export const refreshTodos = () => async (dispatch) => {
   dispatch(startLoading());
-  const response = await fetch('https://todolistapi.escuelait.com/api/todos', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  });
-  const json = await response.json();
+  try {
+    const response = await fetch('https://todolistapi.escuelait.com/api/todos', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    const json = await response.json();
+    dispatch(setTodos(json));
+  } catch(error) {
+    dispatch(sendFeedback('Error en la conexión con el servidor', 'error'));
+  }
   dispatch(stopLoading());
-  console.log(json);
-  dispatch(setTodos(json));
 }
 
 export const addTodo = (name) => async (dispatch) => {
@@ -152,7 +155,7 @@ export const toggleCompleteTodo = (todoId) => async (dispatch, getState) => {
       }
     }
     catch(error) {
-      dispatch(sendFeedback('Hubo un problema...', error));
+      dispatch(sendFeedback('Error en la conexión con el servidor', 'error'));
     }
     dispatch(stopLoading());
   }
